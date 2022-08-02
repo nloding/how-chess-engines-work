@@ -31,6 +31,11 @@ import KnightMoves from './knight_moves.png';
 import Minimax from './minmax.gif';
 import AlphaBetaPruning from './AB_pruning.png';
 import NeuralNetwork from './neural_network.png';
+import NeuralNetworkGradient from './nn_gradient.png';
+import CNNSingle from './cnn-single.png';
+import CNNMulti from './cnn-multi.png';
+import MonteCarlo from './monte-carlo.png';
+import Reinforcement from './reinforcement.png';
 
 const theme = {
   fonts: {
@@ -461,6 +466,288 @@ const Presentation = () => (
 <Slide>
   <FlexBox height="100%" backgroundColor="white">
     <Image src={NeuralNetwork} maxHeight="100%" width="auto" />
+  </FlexBox>
+  <Notes>
+  </Notes>
+</Slide>
+
+<Slide>
+  <FlexBox height="100%">
+    <Heading fontSize="h2">How does a neural network <em>learn</em>?</Heading>
+  </FlexBox>
+  <Notes>
+  </Notes>
+</Slide>
+
+<Slide>
+  <FlexBox height="100%">
+    <Image src={NeuralNetworkGradient} maxHeight="100%" width="auto"/>
+  </FlexBox>
+  <Notes></Notes>
+</Slide>
+
+<Slide>
+  <FlexBox height="100%" flexDirection="column">
+    <Heading fontSize="h2">... in laymen's terms please</Heading>
+    <Appear><Text><strong>1 + 1 = ?</strong></Text></Appear>
+    <FlexBox flexDirection="row">
+      <UnorderedList flexDirection="row">
+        <Appear>
+          <ListItem>
+            <strong>✋🏻</strong>
+            <Appear tagName="span"> - 11!</Appear>
+          </ListItem>
+        </Appear>
+        <Appear>
+          <ListItem>
+            <strong>🚫</strong>
+            <Appear tagName="span"> - very, very wrong!</Appear>
+          </ListItem>
+        </Appear>
+        <Appear>
+          <ListItem>
+            <strong>✋🏻</strong>
+            <Appear tagName="span"> - 5!</Appear>
+          </ListItem>
+        </Appear>
+        <Appear>
+          <ListItem>
+            <strong>🚫</strong>
+            <Appear tagName="span"> - not as wrong!</Appear>
+          </ListItem>
+        </Appear>
+      </UnorderedList>
+      <UnorderedList flexDirection="row">
+        <Appear>
+          <ListItem>
+            <strong>✋🏻</strong>
+            <Appear tagName="span"> - 3!</Appear>
+          </ListItem>
+        </Appear>
+        <Appear>
+          <ListItem>
+            <strong>🚫</strong>
+            <Appear tagName="span"> - oh so close!</Appear>
+          </ListItem>
+        </Appear>
+        <Appear>
+          <ListItem>
+            <strong>✋🏻</strong>
+            <Appear tagName="span"> - 2!</Appear>
+          </ListItem>
+        </Appear>
+        <Appear>
+          <ListItem>
+            <strong>✅</strong>
+            <Appear tagName="span"> - 🎉🎉🎉</Appear>
+          </ListItem>
+        </Appear>
+      </UnorderedList>
+    </FlexBox>
+  </FlexBox>
+  <Notes>
+    go is 10^360
+  </Notes>
+</Slide>
+
+<Slide>
+  <FlexBox height="100%" flexDirection="column">
+    <Heading fontSize="h2">In Data Science terms</Heading>
+    <UnorderedList>
+      <Appear>
+        <ListItem>
+          <strong>Supervised Learning</strong>
+        </ListItem>
+      </Appear>
+      <Appear>
+        <ListItem>
+          <strong>Feedforward</strong> - execute the function
+        </ListItem>
+      </Appear>
+      <Appear>
+        <ListItem>
+          <strong>Loss</strong> - determine how wrong the result is
+        </ListItem>
+      </Appear>
+      <Appear>
+        <ListItem>
+          <strong>Backpropagation</strong> - adjust weights/biases
+        </ListItem>
+      </Appear>
+      <Appear>
+        <ListItem>
+          Feedback loops known as <strong>Epoch</strong>
+        </ListItem>
+      </Appear>
+    </UnorderedList>
+  </FlexBox>
+  <Notes>
+  </Notes>
+</Slide>
+
+<Slide>
+  <FlexBox height="100%" flexDirection="column">
+    <Heading fontSize="h2">Unsupervised Learning</Heading>
+    <Appear><Text>"analyzing uncategorized, unlabeled data and finding hidden structures in it"</Text></Appear>
+    <UnorderedList>
+      <Appear>
+        <ListItem>
+          <strong>Clustering</strong> - group items by most similarities
+        </ListItem>
+      </Appear>
+      <Appear>
+        <ListItem>
+          <strong>Association</strong> - how certain variables relate to each other
+        </ListItem>
+      </Appear>
+    </UnorderedList>
+  </FlexBox>
+  <Notes>
+    unsupervised learning is very hard to understand in my opinion.
+    one way to think about it - imagine having a selection of food in front of you,
+    but you don't know what is what. so you taste a few things. then you taste a few more.
+    you can begin to sort them into sweet, sour, etc.
+    then you go back and taste them all again. oh, now i get a hint of this and a hint of
+    that ... now i refine those categories. then do it again. and again.
+    i still don't _know_ what is in each dish, but i know enough about them to put them
+    into logical groups
+  </Notes>
+</Slide>
+
+<Slide>
+  <FlexBox height="100%" flexDirection="column">
+    <Heading fontSize="h2">Putting the pieces together</Heading>
+    <Image src={CNNSingle} maxHeight="100%" width="auto" maxWidth="100%" />
+  </FlexBox>
+  <Notes>
+    can anyone point out the primary issue with this?
+  </Notes>
+</Slide>
+
+<Slide>
+  <FlexBox height="100%" flexDirection="column">
+    <Heading fontSize="h2">Only one move ...</Heading>
+    <Text>... based on a <em>single</em> position</Text>
+  </FlexBox>
+  <Notes>
+  </Notes>
+</Slide>
+
+<Slide>
+  <FlexBox height="100%" flexDirection="column">
+    <Heading fontSize="h2">Improving the network</Heading>
+    <UnorderedList>
+      <Appear>
+        <ListItem>
+          <strong>CNN</strong> - convolutional neural network
+        </ListItem>
+      </Appear>
+      <Appear>
+        <ListItem>
+          <strong>Input</strong> - board position
+        </ListItem>
+      </Appear>
+      <Appear>
+        <ListItem>
+          <strong>Output</strong> - Multi-head output
+          <Appear tagName="ul">
+            <li>Move probability (policy head)</li>
+            <li>Winning probability (value head)</li>
+          </Appear>
+        </ListItem>
+      </Appear>
+    </UnorderedList>
+  </FlexBox>
+  <Notes>
+    <ol>
+      <li>CNNs are good at image recognition, good fit here</li>
+      <li>why a multi-head output? think about images, where you may want to identify the contents and put a box around it (facial recognition)</li>
+    </ol>
+  </Notes>
+</Slide>
+
+<Slide>
+  <FlexBox height="100%">
+    <Image src={CNNMulti} maxHeight="100%" width="auto" maxWidth="100%" />
+  </FlexBox>
+  <Notes></Notes>
+</Slide>
+
+<Slide>
+  <FlexBox height="100%" flexDirection="column">
+    <Heading fontSize="h2">Monte Carlo Tree Search</Heading>
+    <Appear>
+      <Image src={MonteCarlo} maxHeight="100%" width="auto" maxWidth="100%" />
+    </Appear>
+  </FlexBox>
+  <Notes>
+    anyone play Total War: Rome II?
+  </Notes>
+</Slide>
+
+<Slide>
+  <FlexBox height="100%" flexDirection="column">
+    <Heading fontSize="h2">Exploration vs Exploitation</Heading>
+    <UnorderedList>
+      <Appear>
+        <ListItem>
+          <strong>Exploration</strong> - fewer simulations, "riskier" moves
+        </ListItem>
+      </Appear>
+      <Appear>
+        <ListItem>
+          <strong>Exploitation</strong> - high winning chances
+        </ListItem>
+      </Appear>
+    </UnorderedList>
+  </FlexBox>
+  <Notes>
+    to steal the common example: how would you pick a destination for a vacation?
+  </Notes>
+</Slide>
+
+<Slide>
+  <FlexBox height="100%" flexDirection="column">
+    <Heading fontSize="h2">MCTS vs Minimax</Heading>
+    <UnorderedList>
+      <Appear>
+        <ListItem>
+          <strong>Advantages</strong>
+          <UnorderedList>
+            <ListItem>No evaluation function</ListItem>
+            <ListItem>Grows asymmetrically, less branching</ListItem>
+          </UnorderedList>
+        </ListItem>
+      </Appear>
+      <Appear>
+        <ListItem>
+          <strong>Disadvantages</strong>
+          <UnorderedList>
+            <ListItem>"Trap moves"</ListItem>
+            <ListItem>"Off the radar" moves get pruned</ListItem>
+          </UnorderedList>
+        </ListItem>
+      </Appear>
+    </UnorderedList>
+  </FlexBox>
+  <Notes>
+    
+  </Notes>
+</Slide>
+
+<Slide>
+  <FlexBox height="100%">
+    <Image src={CNNMulti} maxHeight="100%" width="auto" maxWidth="100%" />
+  </FlexBox>
+  <Notes>what's missing?</Notes>
+</Slide>
+
+<Slide>
+  <FlexBox height="100%" flexDirection="column">
+    <Heading fontSize="h2">Reinforcement Learning</Heading>
+    <Appear>
+      <Image src={Reinforcement} maxHeight="100%" width="auto" maxWidth="100%" />
+    </Appear>
   </FlexBox>
   <Notes>
   </Notes>
