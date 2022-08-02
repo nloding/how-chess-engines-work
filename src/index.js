@@ -26,7 +26,11 @@ import {
   Link
 } from 'spectacle';
 
+import QueensGambit from './queens-gambit.jpg';
 import KnightMoves from './knight_moves.png';
+import Minimax from './minmax.gif';
+import AlphaBetaPruning from './AB_pruning.png';
+import NeuralNetwork from './neural_network.png';
 
 const theme = {
   fonts: {
@@ -64,6 +68,13 @@ const Presentation = () => (
       </FlexBox>
       <Notes>
       </Notes>
+    </Slide>
+
+    <Slide>
+      <FlexBox height="100%">
+        <Image src={QueensGambit} maxHeight="100%" width="auto"/>
+      </FlexBox>
+      <Notes></Notes>
     </Slide>
 
     <Slide>
@@ -258,6 +269,16 @@ const Presentation = () => (
     </Slide>
 
     <Slide>
+      <FlexBox height="100%">
+        <Heading fontSize="h2">
+          <em>f</em>(<em>B</em>) &rarr; <em>M</em>
+        </Heading>
+      </FlexBox>
+      <Notes>
+      </Notes>
+    </Slide>
+
+    <Slide>
       <FlexBox height="100%" flexDirection="column">
         <Heading fontSize="h2">How do chess players think?</Heading>
         <UnorderedList>
@@ -276,6 +297,15 @@ const Presentation = () => (
 
     <Slide>
       <FlexBox height="100%">
+        <Heading fontSize="h2">Decision Tree!</Heading>
+      </FlexBox>
+      <Notes>
+        tree-like representation of decisions and possible consequences
+      </Notes>
+    </Slide>
+
+    <Slide>
+      <FlexBox height="100%">
         <Heading fontSize="h2">Easy!</Heading>
         <Heading fontSize="h3" color="#ebe5da">Calculate and store the moves!</Heading>
       </FlexBox>
@@ -285,20 +315,156 @@ const Presentation = () => (
 
     <Slide>
       <FlexBox height="100%" flexDirection="column">
-        <Heading fontSize="h2">How do chess players think?</Heading>
+        <Heading fontSize="h2">Wait ... <em>how big</em>??</Heading>
         <UnorderedList>
-          <Appear><ListItem>Candidate moves - instinct, training, repertoire</ListItem></Appear>
-          <Appear><ListItem>What will my opponents next move be?</ListItem></Appear>
-          <Appear><ListItem>How do I respond to that move?</ListItem></Appear>
-          <Appear><ListItem>Rinse & Repeat</ListItem></Appear>
-          <Appear><ListItem><strong>Average player:</strong> 1-2 moves ahead</ListItem></Appear>
-          <Appear><ListItem><strong>Grandmasters:</strong> 10-15+ moves ahead</ListItem></Appear>
+          <Appear>
+            <ListItem>
+              <strong>Tic-Tac-Toe</strong>
+              <Appear tagName="span"> - 10<sup>5</sup></Appear>
+            </ListItem>
+          </Appear>
+          <Appear>
+            <ListItem>
+              <strong>Connect Four</strong>
+              <Appear tagName="span"> - 10<sup>21</sup></Appear>
+            </ListItem>
+          </Appear>
+          <Appear>
+            <ListItem>
+              <strong>Atoms in Human Body</strong>
+              <Appear tagName="span"> - 10<sup>27</sup></Appear>
+            </ListItem>
+          </Appear>
+          <Appear>
+            <ListItem>
+              <strong>Atoms in Earth</strong>
+              <Appear tagName="span"> - 10<sup>49</sup></Appear>
+            </ListItem>
+          </Appear>
+          <Appear>
+            <ListItem>
+              <strong>Atoms in Milky Way</strong>
+              <Appear tagName="span"> - 10<sup>68</sup></Appear>
+            </ListItem>
+          </Appear>
+          <Appear>
+            <ListItem>
+              <strong>Atoms in Visible Universe</strong>
+              <Appear tagName="span"> - 10<sup>78</sup></Appear>
+            </ListItem>
+          </Appear>
+          <Appear>
+            <ListItem>
+              <strong>Chess</strong>
+              <Appear tagName="span"> - 10<sup>123</sup></Appear>
+            </ListItem>
+          </Appear>
         </UnorderedList>
       </FlexBox>
       <Notes>
-        why i asked the poll questions - i am no longer the smartest person in the room!
+        go is 10^360
+        https://en.wikipedia.org/wiki/Game_complexity#Game_tree_size
       </Notes>
     </Slide>
+
+    <Slide>
+      <FlexBox height="100%">
+        <Heading fontSize="h2">Minimax</Heading>
+      </FlexBox>
+      <Notes>
+        
+      </Notes>
+    </Slide>
+
+    <Slide>
+      <FlexBox height="100%">
+        <Heading fontSize="h2">Negamax</Heading>
+      </FlexBox>
+      <Notes>
+        
+      </Notes>
+    </Slide>
+
+    <Slide>
+      <FlexBox height="100%">
+        <Image src={Minimax} maxHeight="100%" width="auto" />
+      </FlexBox>
+      <Notes>
+        tree-like representation of decisions and possible consequences
+      </Notes>
+    </Slide>
+
+    <Slide>
+      <FlexBox height="100%" flexDirection="column">
+        <Heading fontSize="h2">Alpha-Beta Pruning</Heading>
+        <Heading fontSize="h3" color="#ebe5da">Removes nodes where one possibility is found to be worse a previous move.</Heading>
+      </FlexBox>
+      <Notes>
+        
+      </Notes>
+    </Slide>
+
+    <Slide>
+      <FlexBox height="100%">
+        <Image src={AlphaBetaPruning} maxHeight="100%" maxWidth="100%" width="auto" />
+      </FlexBox>
+      <Notes>
+        tree-like representation of decisions and possible consequences
+      </Notes>
+    </Slide>
+
+    <Slide>
+      <FlexBox height="100%" flexDirection="column">
+        <Heading fontSize="h2">More Optimizations!</Heading>
+        <UnorderedList>
+          <Appear>
+            <ListItem>
+              Move Order
+            </ListItem>
+          </Appear>
+          <Appear>
+            <ListItem>
+              Opening Books
+            </ListItem>
+          </Appear>
+          <Appear>
+            <ListItem>
+              Endgame Tables
+            </ListItem>
+          </Appear>
+        </UnorderedList>
+      </FlexBox>
+      <Notes>
+        go is 10^360
+      </Notes>
+    </Slide>
+
+    <Slide>
+      <FlexBox height="100%" flexDirection="column">
+        <Heading fontSize="h2">... that isn't machine learning ...</Heading>
+      </FlexBox>
+      <Notes>
+        first of all, what do you think machine learning is?
+      </Notes>
+    </Slide>
+
+<Slide>
+  <FlexBox height="100%" flexDirection="column">
+    <Heading fontSize="h2">Machine Learning <em>noun.</em></Heading>
+    <Text>the use and development of computer systems that are able to learn and adapt without following explicit instructions, by using algorithms and statistical models to analyze and draw inferences from patterns in data.</Text>
+  </FlexBox>
+  <Notes>
+    first of all, what do you think machine learning is?
+  </Notes>
+</Slide>
+
+<Slide>
+  <FlexBox height="100%" backgroundColor="white">
+    <Image src={NeuralNetwork} maxHeight="100%" width="auto" />
+  </FlexBox>
+  <Notes>
+  </Notes>
+</Slide>
 
   </Deck>
 );
