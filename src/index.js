@@ -28,6 +28,10 @@ import MonteCarlo from './monte-carlo.png';
 import Reinforcement from './reinforcement.png';
 import CNNTraining from './cnn-training.png';
 
+// sponsors
+import Sponsors from './beer-city-code-2022-sponsors.png';
+const SHOW_SPONSORS = true;
+
 const theme = {
   fonts: {
     header: 'Georgia, "Open Sans Condensed", Helvetica, Arial, sans-serif',
@@ -47,7 +51,7 @@ const template = () => (
     </Box>
     <Box textAlign="right" padding="0">
       <Text fontSize="1.5em">
-        <strong>CONFERENCE NAME</strong> -
+        <strong>Beer City Code</strong> -
         How Chess Engines Work
       </Text>
     </Box>
@@ -69,6 +73,14 @@ const Presentation = () => (
         techniques, and hopefully be able to apply some learnings to any AI/ML projects you work on.
       </Notes>
     </Slide>
+
+    {SHOW_SPONSORS &&
+      <Slide>
+        <FlexBox height="100%">
+          <Image src={Sponsors} maxHeight="100%" maxWidth="100%" width="auto" />
+        </FlexBox>
+      </Slide>
+    }
 
     <Slide>
       <FlexBox height="100%">
