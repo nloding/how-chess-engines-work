@@ -4,24 +4,14 @@ import ReactDOM from 'react-dom';
 import {
   FlexBox,
   Heading,
-  SpectacleLogo,
   UnorderedList,
-  CodeSpan,
-  OrderedList,
   ListItem,
-  FullScreen,
-  Progress,
   Appear,
-  Stepper,
   Slide,
   Deck,
   Text,
-  Grid,
   Box,
   Image,
-  CodePane,
-  MarkdownSlide,
-  MarkdownSlideSet,
   Notes,
   Link
 } from 'spectacle';
@@ -36,6 +26,7 @@ import CNNSingle from './cnn-single.png';
 import CNNMulti from './cnn-multi.png';
 import MonteCarlo from './monte-carlo.png';
 import Reinforcement from './reinforcement.png';
+import CNNTraining from './cnn-training.png';
 
 const theme = {
   fonts: {
@@ -56,7 +47,7 @@ const template = () => (
     </Box>
     <Box textAlign="right" padding="0">
       <Text fontSize="1.5em">
-        <strong>Beer City Code</strong> -
+        <strong>CONFERENCE NAME</strong> -
         How Chess Engines Work
       </Text>
     </Box>
@@ -72,6 +63,10 @@ const Presentation = () => (
         <Heading fontSize="h3" color="#ebe5da">A look at applied AI/ML principles</Heading>
       </FlexBox>
       <Notes>
+        Welcome to my talk! I want to say upfront that there is <em>no code</em> in this entire presentation.
+        This talk is about concepts, about ideas, not about concrete implementations. I want you to walk away
+        with an understanding of how the problem of chess has been solved classically and with modern AI/ML
+        techniques, and hopefully be able to apply some learnings to any AI/ML projects you work on.
       </Notes>
     </Slide>
 
@@ -79,7 +74,9 @@ const Presentation = () => (
       <FlexBox height="100%">
         <Image src={QueensGambit} maxHeight="100%" width="auto"/>
       </FlexBox>
-      <Notes></Notes>
+      <Notes>
+        Who binged "Queen's Gambit" during the pandemic?
+      </Notes>
     </Slide>
 
     <Slide>
@@ -129,7 +126,7 @@ const Presentation = () => (
         </UnorderedList>
       </FlexBox>
       <Notes>
-        why i asked the poll questions - i am no longer the smartest person in the room!
+        Why I asked the poll questions - I am often not the smartest person in the room!
       </Notes>
     </Slide>
 
@@ -138,7 +135,7 @@ const Presentation = () => (
         <Heading fontSize="h2">Evolution of Chess Engines</Heading>
       </FlexBox>
       <Notes>
-        anyone have a guess when the first chess engine was created?
+        Anyone have a guess when the first chess engine was created?
       </Notes>
     </Slide>
 
@@ -174,7 +171,7 @@ const Presentation = () => (
           </Appear>
           <Appear>
             <ListItem>
-              <strong>1988</strong> - Brent Larsen first GM to lose to enginen in tournament
+              <strong>1988</strong> - Brent Larsen first GM to lose to engine in tournament
             </ListItem>
           </Appear>
           <Appear>
@@ -186,10 +183,11 @@ const Presentation = () => (
       </FlexBox>
       <Notes>
         <ul>
+          <li>1769 - Wolfgang von Kempelen, showed it Empress Maria Theresa (Hungary), Ben Franklin, and more</li>
           <li>1950 - same year as Turing Test, considered the first video game. never ran on hardware, lost to time</li>
           <li>1957 - 42k instructions/second, 70K memory, 4-ply search in 8 minutes, first "true" engine</li>
           <li>1958 - Newell, Shaw, & Simon (NSS), learned chess one hour before game</li>
-          <li>1997 - Deep Blue was calculating 50 billion positions every 3 minutes. Kasparov was calculating 10 positions every 3 minutes. DEEP BLUE had 200 processors.</li>
+          <li>1997 - first match in 1996 was won by Kasparov. Deep Blue was calculating 50 billion positions every 3 minutes. Kasparov was calculating 10 positions every 3 minutes. DEEP BLUE had 200 processors.</li>
         </ul>
       </Notes>
     </Slide>
@@ -231,6 +229,7 @@ const Presentation = () => (
         </UnorderedList>
       </FlexBox>
       <Notes>
+        TCEC = Top Chess Engine Championship
       </Notes>
     </Slide>
 
@@ -261,7 +260,11 @@ const Presentation = () => (
       <FlexBox height="100%">
         <Image src={KnightMoves} maxHeight="100%" width="auto"/>
       </FlexBox>
-      <Notes></Notes>
+      <Notes>
+        I do want to share one bit of chess. Lots of people find the knight move confusing, that it moves
+        in an L-shape and it's a bit weird. Here's why. The knight can move to the first available square
+        that other pieces can't reach from the same square.
+      </Notes>
     </Slide>
 
     <Slide>
@@ -269,7 +272,7 @@ const Presentation = () => (
         <Heading fontSize="h2">How Chess Engines Work</Heading>
       </FlexBox>
       <Notes>
-        dude, that's the name of the session, we are already 10 minutes in!
+        Dude, that's the name of the session, we are already 10 minutes in!
       </Notes>
     </Slide>
 
@@ -280,6 +283,7 @@ const Presentation = () => (
         </Heading>
       </FlexBox>
       <Notes>
+        Chess engine is a function that takes a board state and returns a move
       </Notes>
     </Slide>
 
@@ -296,7 +300,7 @@ const Presentation = () => (
         </UnorderedList>
       </FlexBox>
       <Notes>
-        why i asked the poll questions - i am no longer the smartest person in the room!
+        What does this thinking sound like?
       </Notes>
     </Slide>
 
@@ -305,7 +309,7 @@ const Presentation = () => (
         <Heading fontSize="h2">Decision Tree!</Heading>
       </FlexBox>
       <Notes>
-        tree-like representation of decisions and possible consequences
+        Tree-like representation of decisions and possible consequences.
       </Notes>
     </Slide>
 
@@ -315,6 +319,8 @@ const Presentation = () => (
         <Heading fontSize="h3" color="#ebe5da">Calculate and store the moves!</Heading>
       </FlexBox>
       <Notes>
+        Sure, we could try that, but it would take a really, really long time to calculate all the moves
+        because the decision tree is mind bogglingly enormous.
       </Notes>
     </Slide>
 
@@ -367,7 +373,7 @@ const Presentation = () => (
         </UnorderedList>
       </FlexBox>
       <Notes>
-        go is 10^360
+        Go is 10^360<br />
         https://en.wikipedia.org/wiki/Game_complexity#Game_tree_size
       </Notes>
     </Slide>
@@ -377,7 +383,7 @@ const Presentation = () => (
         <Heading fontSize="h2">Minimax</Heading>
       </FlexBox>
       <Notes>
-        
+        We solve decision trees with minimax! You probably did this in CS101!
       </Notes>
     </Slide>
 
@@ -386,7 +392,7 @@ const Presentation = () => (
         <Heading fontSize="h2">Negamax</Heading>
       </FlexBox>
       <Notes>
-        
+        Chess is a zero-sum game, so any players evaluation is the inverse of the others.
       </Notes>
     </Slide>
 
@@ -395,7 +401,6 @@ const Presentation = () => (
         <Image src={Minimax} maxHeight="100%" width="auto" />
       </FlexBox>
       <Notes>
-        tree-like representation of decisions and possible consequences
       </Notes>
     </Slide>
 
@@ -405,7 +410,6 @@ const Presentation = () => (
         <Heading fontSize="h3" color="#ebe5da">Removes nodes where one possibility is found to be worse a previous move.</Heading>
       </FlexBox>
       <Notes>
-        
       </Notes>
     </Slide>
 
@@ -414,7 +418,6 @@ const Presentation = () => (
         <Image src={AlphaBetaPruning} maxHeight="100%" maxWidth="100%" width="auto" />
       </FlexBox>
       <Notes>
-        tree-like representation of decisions and possible consequences
       </Notes>
     </Slide>
 
@@ -440,7 +443,6 @@ const Presentation = () => (
         </UnorderedList>
       </FlexBox>
       <Notes>
-        go is 10^360
       </Notes>
     </Slide>
 
@@ -449,7 +451,7 @@ const Presentation = () => (
         <Heading fontSize="h2">... that isn't machine learning ...</Heading>
       </FlexBox>
       <Notes>
-        first of all, what do you think machine learning is?
+        Fair. So what is ML?
       </Notes>
     </Slide>
 
@@ -459,7 +461,8 @@ const Presentation = () => (
     <Text>the use and development of computer systems that are able to learn and adapt without following explicit instructions, by using algorithms and statistical models to analyze and draw inferences from patterns in data.</Text>
   </FlexBox>
   <Notes>
-    first of all, what do you think machine learning is?
+    ML is ... statistics. And we all know that there are lies, damned lies, and statistics ... but let's look
+    at how ML can be used to play chess. And AI is just fancy ML. Really, it is.
   </Notes>
 </Slide>
 
@@ -468,6 +471,9 @@ const Presentation = () => (
     <Image src={NeuralNetwork} maxHeight="100%" width="auto" />
   </FlexBox>
   <Notes>
+    There are lots of possibilities for machine learning, but we are going to focus on a deep neural network.
+    NN's are very popular today because they are very powerful and flexible, but there's a downside: what
+    happens inside is a black box.
   </Notes>
 </Slide>
 
@@ -546,7 +552,6 @@ const Presentation = () => (
     </FlexBox>
   </FlexBox>
   <Notes>
-    go is 10^360
   </Notes>
 </Slide>
 
@@ -603,13 +608,13 @@ const Presentation = () => (
     </UnorderedList>
   </FlexBox>
   <Notes>
-    unsupervised learning is very hard to understand in my opinion.
-    one way to think about it - imagine having a selection of food in front of you,
-    but you don't know what is what. so you taste a few things. then you taste a few more.
-    you can begin to sort them into sweet, sour, etc.
-    then you go back and taste them all again. oh, now i get a hint of this and a hint of
-    that ... now i refine those categories. then do it again. and again.
-    i still don't _know_ what is in each dish, but i know enough about them to put them
+    Unsupervised learning is very hard to understand in my opinion.
+    One way to think about it: imagine having a selection of food in front of you,
+    But you don't know what is what. So you taste a few things. Then you taste a few more.
+    You can begin to sort them into sweet, sour, etc., or by utensils needed, or by color or smell.
+    Then you go back and taste them all again. Oh, now I get a hint of this and a hint of
+    that ... now I refine those categories. Then do it again. And again.
+    I still don't <em>know</em> what is in each dish, but I know enough about them to put them
     into logical groups
   </Notes>
 </Slide>
@@ -620,7 +625,7 @@ const Presentation = () => (
     <Image src={CNNSingle} maxHeight="100%" width="auto" maxWidth="100%" />
   </FlexBox>
   <Notes>
-    can anyone point out the primary issue with this?
+    Can anyone point out the primary issue with this?
   </Notes>
 </Slide>
 
@@ -681,7 +686,7 @@ const Presentation = () => (
     </Appear>
   </FlexBox>
   <Notes>
-    anyone play Total War: Rome II?
+    Anyone play Total War: Rome II?
   </Notes>
 </Slide>
 
@@ -702,7 +707,7 @@ const Presentation = () => (
     </UnorderedList>
   </FlexBox>
   <Notes>
-    to steal the common example: how would you pick a destination for a vacation?
+    To steal the common example: how would you pick a destination for a vacation?
   </Notes>
 </Slide>
 
@@ -731,7 +736,6 @@ const Presentation = () => (
     </UnorderedList>
   </FlexBox>
   <Notes>
-    
   </Notes>
 </Slide>
 
@@ -739,7 +743,7 @@ const Presentation = () => (
   <FlexBox height="100%">
     <Image src={CNNMulti} maxHeight="100%" width="auto" maxWidth="100%" />
   </FlexBox>
-  <Notes>what's missing?</Notes>
+  <Notes>What's missing?</Notes>
 </Slide>
 
 <Slide>
@@ -750,6 +754,81 @@ const Presentation = () => (
     </Appear>
   </FlexBox>
   <Notes>
+  </Notes>
+</Slide>
+
+<Slide>
+  <FlexBox height="100%" flexDirection="column">
+    <Heading fontSize="h2">The finished puzzle</Heading>
+    <Appear>
+      <Image src={CNNTraining} maxHeight="100%" width="auto" maxWidth="100%" />
+    </Appear>
+  </FlexBox>
+  <Notes>
+  </Notes>
+</Slide>
+
+<Slide>
+  <FlexBox height="100%" flexDirection="column">
+    <Heading fontSize="h2">And the winner is ...</Heading>
+    <Appear><Text><em><strong>Stockfish!</strong></em></Text></Appear>
+  </FlexBox>
+  <Notes>
+    Wait what?
+    AlphaZero and Lc0 did beat Stockfish a few times, but not consistently.
+  </Notes>
+</Slide>
+
+<Slide>
+  <FlexBox height="100%" flexDirection="column">
+    <Heading fontSize="h2">Why?!</Heading>
+    <Appear><Text>Stockfish thinks about moves in a more structured manner</Text></Appear>
+  </FlexBox>
+  <Notes>
+    This is a simplified explanation, of course, but I think it's a good
+    way to think about it conceptually
+  </Notes>
+</Slide>
+
+<Slide>
+  <FlexBox height="100%" flexDirection="column">
+    <Heading fontSize="h2">But wait! There's more!</Heading>
+    <UnorderedList>
+    <Appear><ListItem>Stockfish introduced <strong>NNUE</strong> in v12</ListItem></Appear>
+    <Appear><ListItem>Use it as evaluation function for Minimax/Alpha-Beta Pruning!</ListItem></Appear>
+    <Appear><ListItem><em>Supervised</em></ListItem></Appear>
+    </UnorderedList>
+  </FlexBox>
+  <Notes>
+    The Stockfish team had been experimenting with ML for a while, but improvements
+    from AlphaZero and Lc0 cemented some ideas.
+    Stockfish had hit a bit of a limit as the models in the ML powered engines became
+    stronger. Stockfish became the best of both worlds!
+  </Notes>
+</Slide>
+
+<Slide>
+  <FlexBox height="100%" flexDirection="column">
+    <Heading fontSize="h2">Takeaways</Heading>
+    <UnorderedList>
+      <Appear><ListItem><strong>Rules matter</strong></ListItem></Appear>
+      <Appear><ListItem><strong>AI/ML is not a magic bullet</strong></ListItem></Appear>
+      <Appear><ListItem><strong>Classical algorithms remain powerful</strong></ListItem></Appear>
+      <Appear><ListItem><strong>Classical + AI/ML ...</strong></ListItem></Appear>
+    </UnorderedList>
+  </FlexBox>
+  <Notes>
+    The end is a little cramped, but I want you to walk away with some
+    solid takeaways
+  </Notes>
+</Slide>
+
+<Slide>
+  <FlexBox height="100%" flexDirection="column">
+    <Heading fontSize="130px">That's All Folks!</Heading>
+  </FlexBox>
+  <Notes>
+
   </Notes>
 </Slide>
 
